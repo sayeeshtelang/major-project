@@ -1,0 +1,69 @@
+================================================================================
+          FUTURE PEAK LOAD PREDICTION MODEL & FORMULA EXPLANATION
+================================================================================
+
+1. OVERVIEW & CONCEPT
+--------------------------------------------------------------------------------
+In electrical power engineering, total daily energy demand (measured in 
+Million Units or MU, where 1 MU = 1 GWh = 1,000 MWh) represents cumulative energy 
+consumed over a 24-hour period. However, total daily energy alone does NOT tell 
+grid operators the instantaneous peak capacity required to prevent blackouts, 
+grid frequency drops, and transformer overloads.
+
+Peak Load Prediction calculates the maximum instantaneous power demand (in Megawatts, MW) 
+expected during peak operational hours. It accounts for load distribution, peak hour 
+coincidence (simultaneous peak usage by industrial, commercial, and residential sectors), 
+and grid contingency safety margins.
+
+
+2. MATHEMATICAL FORMULA
+--------------------------------------------------------------------------------
+The Future Peak Load (P_peak) in Megawatts (MW) is derived using the following 
+physically grounded power system formula:
+
+    P_peak (MW) = [ ( E_24h * 1000 ) / ( 24 * LF ) ] * K_coincidence * ( 1 + alpha_contingency )
+
+Where:
+  • E_24h             = Predicted 24-Hour Total Energy Demand (in MU / GWh)
+  • 1000              = Conversion factor from MU (GWh) to MWh
+  • 24                = Hours in a day
+  • LF                = Grid Daily Load Factor (nominal value: 0.78 or 78%)
+                        [LF = Average Demand / Peak Demand]
+  • K_coincidence     = Peak Coincidence Multiplier (nominal value: 1.12)
+                        Accounts for sharp simultaneous demand surges during evening peak.
+  • alpha_contingency = Weather & Spinning Reserve Contingency Buffer (nominal value: 0.05 or 5%)
+
+
+3. STEP-BY-STEP DERIVATION
+--------------------------------------------------------------------------------
+Step 1: Calculate Average Power Demand (P_avg) in MW
+        P_avg (MW) = ( E_24h * 1000 MWh ) / 24 hours
+        For E_24h = 100 MU:
+        P_avg = (100 * 1000) / 24 = 4,166.67 MW
+
+Step 2: Base Peak Power from Load Factor (LF = 0.78)
+        P_base_peak = P_avg / LF
+        P_base_peak = 4,166.67 / 0.78 = 5,341.88 MW
+
+Step 3: Apply Coincidence Multiplier (K_coincidence = 1.12)
+        P_coincident = 5,341.88 * 1.12 = 5,982.91 MW
+
+Step 4: Apply Contingency Reserve Buffer (alpha = 5%)
+        P_peak = 5,982.91 * 1.05 = 6,282.05 MW
+
+
+4. KEY METRICS PRODUCED FOR GRID MANAGEMENT
+--------------------------------------------------------------------------------
+1. Predicted Peak Demand (MW): The maximum instantaneous power capacity expected.
+2. Average Power Demand (MW): Baseline continuous demand throughout 24 hours.
+3. Peak Surge Multiplier: Ratio of Peak Load to Average Load (approx 1.507x or +50.7% surge).
+4. Estimated Peak Window: 18:00 - 22:00 (Evening Peak Hour Window).
+5. Recommended Spinning Reserve: Minimum required generation headroom to maintain grid balance.
+
+
+5. APPLICATION IN DASHBOARD & OPTIMIZATION
+--------------------------------------------------------------------------------
+By presenting the Future Peak Load in MW on the executive dashboard, dispatchers and 
+energy planners can immediately assess whether generation assets (coal, gas, hydro, renewables) 
+and storage reserves can comfortably handle the peak instantaneous load without risking 
+load shedding or localized voltage sags.

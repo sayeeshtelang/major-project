@@ -1,0 +1,46 @@
+day_of_week
+month
+is_weekend
+demand_lag_1d
+demand_lag_7d
+rolling_7d_mean
+diff_1d
+diff_7d
+ratio_7d
+rolling_diff
+state_Andhra Pradesh
+state_Arunachal Pradesh
+state_Assam
+state_Bihar
+state_Chandigarh
+state_Chhattisgarh
+state_DNH
+state_Delhi
+state_Goa
+state_Gujarat
+state_HP
+state_Haryana
+state_J&K
+state_Jharkhand
+state_Karnataka
+state_Kerala
+state_MP
+state_Maharashtra
+state_Manipur
+state_Meghalaya
+state_Mizoram
+state_Nagaland
+state_Odisha
+state_Pondy
+state_Punjab
+state_Rajasthan
+state_Sikkim
+state_Tamil Nadu
+state_Telangana
+state_Tripura
+state_UP
+state_Uttarakhand
+state_West Bengal
+season_monsoon
+season_summer
+season_winter
